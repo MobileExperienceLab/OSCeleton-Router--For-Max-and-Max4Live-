@@ -12,7 +12,7 @@ All message names are derived from the original OSCeleton
 How do I use it?
 ----------------
 
-
+Well first you are going to need to install and run OSCeleton... which you can find [here](https://github.com/Sensebloom/OSCeleton)
 
 
 OSC Message format
