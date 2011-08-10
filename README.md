@@ -5,8 +5,8 @@ What is this?
 -------------
 
 These patches take care of routing all in coming data from OSCeleton in to the Max/msp environment.
-The patches take all incoming OSC data from OSCeleton and route them as send messages.
-All message names are derived from the original OSCeleton
+<br>The patches take all incoming OSC data from OSCeleton and route them as send messages.
+<br>All message names are derived from the original OSCeleton
 
 
 What do I need to make this work?
