@@ -29,7 +29,7 @@ Huh?
 Ok so you can make a receive object like such 
 Replace the number to get a different users data up to 4 users!!!
 
-<br>(r user1_new_) ~ Receives a Bang when User 1 is Detected
+<br>(r user1_new) ~ Receives a Bang when User 1 is Detected
 <br>(r user1_calib_start) ~ Receives a Bang when User 1 is Calibrating (Psy Pose)
 <br>(r user1_calib_fail) ~ Receives a Bang if User 1 Calibration Fails
 <br>(r user1_new_skel) ~ Receives a Bang if User 1 Calibration Succeeds
