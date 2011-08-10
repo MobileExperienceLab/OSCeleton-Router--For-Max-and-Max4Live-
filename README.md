@@ -9,65 +9,31 @@ The patches take all incoming OSC data from OSCeleton and route them as send mes
 All message names are derived from the original OSCeleton
 
 
-How do I use it?
-----------------
+What do I need to make this work?
+----------------------------------
 
-Well first you are going to need to install and run OSCeleton... which you can find [here](https://github.com/Sensebloom/OSCeleton)
+Well first you are going to need to install and run OSCeleton... which you can find [here](https://github.com/Sensebloom/OSCeleton).  If you would like visual feedback
+of calibration please use my fork found [here](https://github.com/TheAlphaNerd/OSCeleton)
+
+All OSC messages are routed to send objects, offering you a plethora of receive objects
+you can use to track users entering and leaving the frame, calibrating, center of mass detection,
+and of course skeletal tracking. 
+
+Huh?
+----------------------------------
+
+Ok so you can make a receive object like such 
+Replace the number to get a different users data up to 4 users!!!
 
 
-OSC Message format
-------------------
+(r user1_new_) ~ Receives a Bang when User 1 is Detected
+(r user1_calib_start) ~ Receives a Bang when User 1 is Calibrating (Psy Pose)
+(r user1_calib_fail) ~ Receives a Bang if User 1 Calibration Fails
+(r user1_new_skel) ~ Receives a Bang if User 1 Calibration Succeeds
+(r user1_lost)  ~ Receives a Bang if User 1 is lost
 
-### New user detected - no skeleton available yet. This is a good time
-### for you to ask the user to do the calibration pose:
-    Address pattern: "/new_user"
-    Type tag: "i"
-    i: A numeric ID attributed to the new user.
-
-### New skeleton detected - The calibration was finished successfully,
-### joint coordinate messages for this user will be incoming soon ;):
-    Address pattern: "/new_skel"
-    Type tag: "i"
-    i: ID of the user whose skeleton is detected.
-
-### Lost user - we have lost the user with the following id:
-    Address pattern: "/lost_user"
-    Type tag: "i"
-    i: The ID of the lost user. (This ID will be free for reuse from now 
-on)
-
-### Joint message - message with the coordinates of each skeleton joint:
-    Address pattern: "/joint"
-    Type tag: "sifff"
-    s: Joint name, check out the full list of joints below.
-    i: The ID of the user.
-    f: X coordinate of joint in interval [0.0, 1.0]
-    f: Y coordinate of joint in interval [0.0, 1.0]
-    f: Z coordinate of joint in interval [0.0, 7.0]
-
-#### NOTE: Kitchen mode
-To send OSC messages compatible with the awesome animata skeletal
-animation software use the "-k" option. The messages will have the
-following format:
-    Address pattern: "/joint"
-    Type tag: "sff"
-    s: joint name concatenated with user id (ex: "l_shoulder0")
-    f: X coordinate of joint in interval [0.0, 1.0]
-    f: Y coordinate of joint in interval [0.0, 1.0]
-In this mode new_user, new_skel and lost_user messages
-will not be sent.
-
-#### NOTE: Quartz Composer mode
-You can enable a message format that is more friendly to Quartz
-composer with the "-q" option. The messages will have the following 
-format:
-    Address pattern: "/joint/name/id"
-    Type tag: "fff"
-    f: X coordinate of joint in interval [0.0, 1.0]
-    f: Y coordinate of joint in interval [0.0, 1.0]
-    f: Z coordinate of joint in interval [0.0, 7.0]
-Example (left knee of user 3):
-    /joint/l_knee/3 0.08823146 0.5761504 0.44253197
+(r user1_center)  ~ Receives a message s i i i (center x y z)
+(r user1_joint) ~ Receives a message s i i i (joint x y z)
 
 
 ### Full list of joints
