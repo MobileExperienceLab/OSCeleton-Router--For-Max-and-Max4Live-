@@ -35,8 +35,8 @@ Replace the number to get a different users data up to 4 users!!!
 <br>(r user1_new_skel) ~ Receives a Bang if User 1 Calibration Succeeds
 <br>(r user1_lost)  ~ Receives a Bang if User 1 is lost
 
-<br>(r user1_center)  ~ Receives a message s i i i (center x y z)
-<br>(r user1_joint) ~ Receives a message s i i i (joint x y z)
+<br>(r user1_center)  ~ Receives a message "s i i i" (center x y z)
+<br>(r user1_joint) ~ Receives a message "s i i i" (joint x y z)
 
 
 ### Full list of joints
